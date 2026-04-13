@@ -901,7 +901,7 @@ font-size:22px;
 <div>
 <strong>تسجيل عالي الوضوح</strong>
 <span>يدعم أنظمة HDCVI لتسجيل صورة واضحة ومتابعة أدق للتفاصيل.</span>
- </div>
+ </div>
 </article>
 <article class="feature-card">
 <i class="fa-solid fa-mobile-screen-button"></i>
@@ -953,11 +953,6 @@ font-size:22px;
 <div class="field">
 <label for="qty">كمية المنتج</label>
 <input id="qty" name="كمية_المنتج" type="number" min="1" value="1" required>
-</div>
-
-<div class="field full">
-<label for="address">العنوان الكامل</label>
-<input id="address" name="العنوان_الكامل" type="text" placeholder="الحي، الشارع، البلدية..." required>
 </div>
 
 <div class="field full">
@@ -1178,7 +1173,7 @@ const qtyInput = document.getElementById("qty");
 const cableSelect = document.getElementById("cable");
 const cableQtyInput = document.getElementById("cableQty");
 const wilayaSelect = document.getElementById("wilaya");
-const hiddenTotalPrice = document.getElementById("hiddenTotalPrice"); // لجلب الحقل المخفي
+const hiddenTotalPrice = document.getElementById("hiddenTotalPrice");
 
 function populateWilayas() {
   wilayaSelect.innerHTML = "";
@@ -1228,7 +1223,6 @@ function calc() {
   document.getElementById("shippingPrice").innerText = formatDzd(shipping);
   document.getElementById("totalPrice").innerText = formatDzd(total);
   
-  // تحديث الحقل المخفي لكي يتم إرسال السعر الإجمالي للإيميل
   hiddenTotalPrice.value = formatDzd(total);
 }
 
