@@ -1,1 +1,1289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جهاز تسجيل HDCVI DVR | Boutique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+--bg:#f7f3ed;
+--surface:#ffffff;
+--surface-soft:#f8f6f1;
+--ink:#171717;
+--muted:#6a6a6a;
+--line:#e7dece;
+--brand:#111111;
+--accent:#b88b4a;
+--accent-soft:#f2e5d0;
+--success:#167c4d;
+--shadow:0 18px 45px rgba(20,20,20,.08);
+--radius-xl:28px;
+--radius-lg:20px;
+--radius-md:14px;
+}
 
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:"Cairo",sans-serif;
+background:
+radial-gradient(circle at top right, rgba(184,139,74,.12), transparent 28%),
+linear-gradient(180deg, #fbf7f1 0%, #f5efe6 100%);
+color:var(--ink);
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+color:inherit;
+}
+
+.topbar{
+background:var(--brand);
+color:#fff;
+overflow:hidden;
+font-size:12px;
+letter-spacing:.15px;
+}
+
+.topbar-track{
+display:flex;
+width:max-content;
+animation:marquee 18s linear infinite;
+will-change:transform;
+}
+
+.topbar-group{
+display:flex;
+align-items:center;
+gap:36px;
+padding:8px 18px;
+flex-shrink:0;
+white-space:nowrap;
+}
+
+@keyframes marquee{
+from{transform:translateX(0)}
+to{transform:translateX(-50%)}
+}
+
+.page{
+max-width:1240px;
+margin:auto;
+padding:24px 20px 64px;
+}
+
+.site-header{
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:18px;
+padding:14px 18px;
+border-radius:22px;
+background:rgba(255,255,255,.84);
+border:1px solid rgba(231,222,206,.95);
+box-shadow:var(--shadow);
+backdrop-filter:blur(14px);
+}
+
+.nav-brand{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+direction:ltr;
+transform:translateX(-10px);
+}
+
+.brand-logo{
+width:72px;
+height:72px;
+object-fit:contain;
+padding:4px;
+}
+
+.brand-title{
+font-size:28px;
+font-weight:800;
+letter-spacing:.2px;
+color:var(--brand);
+}
+
+.brand-title .wm{
+color:#1d63ed;
+}
+
+.hero{
+display:grid;
+grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);
+gap:28px;
+align-items:start;
+margin-top:22px;
+}
+
+.gallery-card,
+.details-card,
+.feature-card,
+.tab-panel,
+.contact-card{
+background:rgba(255,255,255,.86);
+border:1px solid rgba(231,222,206,.95);
+box-shadow:var(--shadow);
+backdrop-filter:blur(14px);
+}
+
+.gallery-card{
+padding:22px;
+border-radius:var(--radius-xl);
+}
+
+.gallery-main{
+position:relative;
+}
+
+.gallery-viewport{
+display:flex;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+scrollbar-width:none;
+border-radius:24px;
+aspect-ratio:1/1;
+background:linear-gradient(145deg,#efe5d7,#fbf7f0);
+}
+
+.gallery-viewport::-webkit-scrollbar{
+display:none;
+}
+
+.gallery-slide{
+min-width:100%;
+scroll-snap-align:start;
+position:relative;
+padding:18px;
+}
+
+.gallery-slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:18px;
+}
+
+.gallery-badge{
+position:absolute;
+top:30px;
+right:30px;
+padding:8px 12px;
+border-radius:999px;
+background:rgba(255,255,255,.9);
+font-size:13px;
+font-weight:800;
+box-shadow:0 10px 24px rgba(17,17,17,.08);
+}
+
+.gallery-controls{
+position:absolute;
+inset:50% 12px auto 12px;
+display:flex;
+justify-content:space-between;
+transform:translateY(-50%);
+pointer-events:none;
+direction:ltr;
+}
+
+.gallery-btn{
+width:48px;
+height:48px;
+border:none;
+border-radius:50%;
+background:rgba(255,255,255,.92);
+box-shadow:0 14px 30px rgba(0,0,0,.12);
+cursor:pointer;
+pointer-events:auto;
+font-size:18px;
+color:var(--brand);
+transition:transform .2s ease, background .2s ease;
+}
+
+.gallery-btn:hover{
+transform:translateY(-2px);
+background:#fff;
+}
+
+.thumbs{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:10px;
+margin-top:14px;
+max-width:520px;
+margin-inline:auto;
+}
+
+.thumb{
+border:none;
+padding:0;
+background:none;
+cursor:pointer;
+border-radius:16px;
+overflow:hidden;
+outline:2px solid transparent;
+outline-offset:2px;
+transition:transform .2s ease, outline-color .2s ease;
+max-width:74px;
+justify-self:center;
+}
+
+.thumb img{
+aspect-ratio:1/1;
+object-fit:cover;
+width:74px;
+height:74px;
+}
+
+.thumb.active{
+outline-color:var(--accent);
+}
+
+.thumb:hover{
+transform:translateY(-2px);
+}
+
+.details-card{
+padding:26px;
+border-radius:var(--radius-xl);
+position:sticky;
+top:18px;
+}
+
+.brand-line{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:14px;
+margin-bottom:10px;
+color:var(--muted);
+font-size:14px;
+}
+
+.brand-tag{
+padding:8px 12px;
+border-radius:999px;
+background:var(--surface-soft);
+border:1px solid var(--line);
+font-weight:700;
+color:#45392e;
+}
+
+.details-card h1{
+margin:0;
+font-size:clamp(28px,4vw,44px);
+line-height:1.15;
+}
+
+.lead{
+margin:12px 0 18px;
+color:var(--muted);
+font-size:15px;
+line-height:1.9;
+}
+
+.price-row{
+display:flex;
+align-items:end;
+gap:12px;
+margin-bottom:18px;
+}
+
+.price{
+font-size:34px;
+font-weight:800;
+color:var(--success);
+line-height:1;
+}
+
+.old{
+font-size:18px;
+color:#9b9388;
+text-decoration:line-through;
+}
+
+.benefits{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:12px;
+margin:20px 0 24px;
+}
+
+.feature-card{
+display:flex;
+align-items:flex-start;
+gap:12px;
+padding:16px;
+border-radius:18px;
+}
+
+.feature-card i{
+width:38px;
+height:38px;
+display:grid;
+place-items:center;
+border-radius:12px;
+background:var(--accent-soft);
+color:#8a652e;
+}
+
+.feature-card strong{
+display:block;
+margin-bottom:3px;
+font-size:15px;
+}
+
+.feature-card span{
+color:var(--muted);
+font-size:13px;
+line-height:1.7;
+}
+
+.product-description{
+margin-top:20px;
+padding:20px;
+border-radius:20px;
+background:linear-gradient(180deg,#fdfaf5 0%,#f7f1e8 100%);
+border:1px solid var(--line);
+}
+
+.product-description h3{
+margin:0 0 12px;
+font-size:18px;
+}
+
+.product-description p{
+margin:0;
+font-size:14px;
+line-height:2;
+color:#4f473f;
+}
+
+.order-card{
+margin-top:8px;
+padding:22px;
+background:var(--surface);
+border:1px solid var(--line);
+border-radius:24px;
+}
+
+.section-title{
+margin:0 0 14px;
+font-size:24px;
+}
+
+.section-note{
+margin:0 0 20px;
+font-size:14px;
+color:var(--muted);
+}
+
+.field-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:14px;
+}
+
+.field{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.field.full{
+grid-column:1/-1;
+}
+
+.field label{
+font-size:14px;
+font-weight:700;
+color:#3c3228;
+}
+
+.field input,
+.field select{
+width:100%;
+border:1px solid #dbcdb8;
+background:#fffdfa;
+padding:14px 16px;
+border-radius:14px;
+font-family:inherit;
+font-size:15px;
+color:var(--ink);
+transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.field input:focus,
+.field select:focus{
+outline:none;
+border-color:var(--accent);
+box-shadow:0 0 0 4px rgba(184,139,74,.12);
+transform:translateY(-1px);
+}
+
+.addon-box,
+.delivery-box,
+.summary{
+margin-top:16px;
+padding:18px;
+border-radius:18px;
+background:var(--surface-soft);
+border:1px solid var(--line);
+}
+
+.addon-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:14px;
+margin-top:14px;
+}
+
+.delivery-title{
+margin:0 0 12px;
+font-size:15px;
+font-weight:800;
+}
+
+.delivery-options{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:12px;
+}
+
+.radio-card{
+position:relative;
+cursor:pointer;
+}
+
+.radio-card input{
+position:absolute;
+opacity:0;
+pointer-events:none;
+}
+
+.radio-ui{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+padding:15px;
+border-radius:16px;
+border:1px solid #dcccba;
+background:#fff;
+transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.radio-ui strong{
+display:block;
+font-size:15px;
+}
+
+.radio-ui span{
+display:block;
+font-size:13px;
+color:var(--muted);
+}
+
+.radio-card input:checked + .radio-ui{
+border-color:var(--brand);
+box-shadow:0 12px 22px rgba(17,17,17,.08);
+transform:translateY(-1px);
+}
+
+.summary-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+margin:0 0 14px;
+font-size:16px;
+font-weight:800;
+}
+
+.summary-line{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px;
+padding:10px 0;
+border-bottom:1px solid rgba(17,17,17,.08);
+font-size:15px;
+}
+
+.summary-line:last-child{
+padding-bottom:0;
+border-bottom:none;
+}
+
+.summary-total{
+font-size:24px;
+font-weight:800;
+color:var(--brand);
+}
+
+.submit-btn{
+width:100%;
+margin-top:18px;
+padding:16px 18px;
+border:none;
+border-radius:16px;
+background:linear-gradient(135deg,#141414,#2d2d2d);
+color:#fff;
+font-family:inherit;
+font-size:16px;
+font-weight:800;
+cursor:pointer;
+box-shadow:0 18px 32px rgba(17,17,17,.18);
+transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.submit-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 20px 36px rgba(17,17,17,.22);
+}
+
+.microcopy{
+margin-top:12px;
+text-align:center;
+font-size:13px;
+color:var(--muted);
+}
+
+.info-section{
+margin-top:34px;
+}
+
+.tabs{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:12px;
+}
+
+.tab{
+padding:16px;
+border:none;
+border-radius:18px;
+background:rgba(255,255,255,.78);
+border:1px solid var(--line);
+box-shadow:var(--shadow);
+font-family:inherit;
+font-size:15px;
+font-weight:800;
+cursor:pointer;
+transition:transform .2s ease, background .2s ease, color .2s ease;
+}
+
+.tab.active{
+background:var(--brand);
+color:#fff;
+}
+
+.tab-panel{
+display:none;
+grid-template-columns:minmax(220px,280px) 1fr;
+gap:24px;
+margin-top:16px;
+padding:24px;
+border-radius:var(--radius-xl);
+}
+
+.tab-panel.active{
+display:grid;
+}
+
+.tab-panel img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:22px;
+}
+
+.tab-panel h3{
+margin:0 0 10px;
+font-size:28px;
+}
+
+.tab-panel p{
+margin:0 0 10px;
+color:var(--muted);
+line-height:1.9;
+}
+
+.contact-card{
+display:grid;
+grid-template-columns:1.15fr .85fr;
+gap:24px;
+margin-top:28px;
+padding:28px;
+border-radius:var(--radius-xl);
+}
+
+.contact-card h3{
+margin:0 0 10px;
+font-size:28px;
+}
+
+.contact-card p{
+margin:0;
+color:var(--muted);
+line-height:1.9;
+}
+
+.contact-links{
+display:grid;
+gap:12px;
+}
+
+.contact-link{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+padding:16px 18px;
+border-radius:18px;
+background:#fff;
+border:1px solid var(--line);
+text-decoration:none;
+transition:transform .2s ease, border-color .2s ease;
+}
+
+.contact-link:hover{
+transform:translateY(-2px);
+border-color:#cfb793;
+}
+
+.contact-link .left{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.contact-value{
+direction:ltr;
+unicode-bidi:embed;
+text-align:left;
+font-family:Arial,sans-serif;
+}
+
+.contact-link i{
+width:42px;
+height:42px;
+display:grid;
+place-items:center;
+border-radius:14px;
+background:var(--accent-soft);
+color:#8a652e;
+}
+
+footer{
+text-align:center;
+padding-top:26px;
+color:#74685b;
+font-size:14px;
+}
+
+footer .brand-title{
+display:inline;
+font-size:inherit;
+font-weight:800;
+}
+
+@media (max-width:1024px){
+.hero,
+.contact-card{
+grid-template-columns:1fr;
+}
+
+.details-card{
+position:static;
+}
+}
+
+@media (max-width:768px){
+.page{
+padding:16px 14px 48px;
+}
+
+.site-header{
+margin-bottom:14px;
+}
+
+.nav-brand{
+gap:10px;
+transform:translateX(-6px);
+}
+
+.brand-logo{
+width:60px;
+height:60px;
+}
+
+.brand-title{
+font-size:22px;
+}
+
+.topbar{
+font-size:11px;
+}
+
+.topbar-group{
+gap:24px;
+padding:7px 14px;
+}
+
+.gallery-card,
+.details-card,
+.tab-panel,
+.contact-card{
+padding:18px;
+border-radius:24px;
+}
+
+.thumbs{
+display:flex;
+gap:8px;
+overflow-x:auto;
+padding-bottom:4px;
+max-width:100%;
+margin-inline:0;
+scrollbar-width:none;
+}
+
+.thumbs::-webkit-scrollbar{
+display:none;
+}
+
+.thumb{
+flex:0 0 auto;
+max-width:56px;
+}
+
+.thumb img{
+width:56px;
+height:56px;
+}
+
+.benefits,
+.field-grid,
+.addon-grid,
+.delivery-options,
+.tabs,
+.tab-panel{
+grid-template-columns:1fr;
+}
+
+.tab-panel img{
+height:200px;
+}
+
+.price{
+font-size:30px;
+}
+
+.section-title{
+font-size:22px;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+<div class="topbar-track">
+<div class="topbar-group">
+<span>شحن سريع إلى كل الولايات</span>
+<span>الدفع عند الاستلام</span>
+<span>ضمان على المنتج وجودة مضمونة</span>
+</div>
+<div class="topbar-group" aria-hidden="true">
+<span>شحن سريع إلى كل الولايات</span>
+<span>الدفع عند الاستلام</span>
+<span>ضمان على المنتج وجودة مضمونة</span>
+</div>
+</div>
+</div>
+
+<main class="page">
+<header class="site-header">
+<div class="nav-brand">
+<img class="brand-logo" src="https://i.ibb.co/RT5P1vnF/Design-sans-titre-3.png" alt="Logo de la boutique">
+<div class="brand-title"><span class="wm">WM</span> Sécurité</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="gallery-card">
+<div class="gallery-main">
+<div class="gallery-viewport" id="galleryViewport">
+<div class="gallery-slide">
+<span class="gallery-badge">صورة 1 / 6</span>
+<img src="https://i.ibb.co/G3rYFd8p/IMG-8454.avif" alt="جهاز DVR احترافي">
+</div>
+<div class="gallery-slide">
+<span class="gallery-badge">صورة 2 / 6</span>
+<img src="https://i.ibb.co/h6syc2s/IMG-8442-2.avif" alt="منظومة مراقبة">
+</div>
+<div class="gallery-slide">
+<span class="gallery-badge">صورة 3 / 6</span>
+<img src="https://i.ibb.co/4nJzJ8bs/IMG-8448.avif" alt="مخارج جهاز التسجيل">
+</div>
+<div class="gallery-slide">
+<span class="gallery-badge">صورة 4 / 6</span>
+<img src="https://i.ibb.co/hFcTKpBz/IMG-8446.avif" alt="مراقبة عبر الهاتف">
+</div>
+<div class="gallery-slide">
+<span class="gallery-badge">صورة 5 / 6</span>
+<img src="https://i.ibb.co/wZCNtL8V/IMG-8449.avif" alt="تفاصيل تقنية للمنتج">
+</div>
+<div class="gallery-slide">
+<span class="gallery-badge">صورة 6 / 6</span>
+<img src="https://i.ibb.co/LzhL4FP1/IMG-8451.avif" alt="تجهيز أمني حديث">
+</div>
+</div>
+
+<div class="gallery-controls">
+<button class="gallery-btn" type="button" id="prevBtn" aria-label="السابق"><i class="fa-solid fa-chevron-left"></i></button>
+<button class="gallery-btn" type="button" id="nextBtn" aria-label="التالي"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+</div>
+
+<div class="thumbs" id="thumbs">
+<button class="thumb active" type="button" data-index="0"><img src="https://i.ibb.co/G3rYFd8p/IMG-8454.avif" alt="صورة مصغرة 1"></button>
+<button class="thumb" type="button" data-index="1"><img src="https://i.ibb.co/h6syc2s/IMG-8442-2.avif" alt="صورة مصغرة 2"></button>
+<button class="thumb" type="button" data-index="2"><img src="https://i.ibb.co/4nJzJ8bs/IMG-8448.avif" alt="صورة مصغرة 3"></button>
+<button class="thumb" type="button" data-index="3"><img src="https://i.ibb.co/hFcTKpBz/IMG-8446.avif" alt="صورة مصغرة 4"></button>
+<button class="thumb" type="button" data-index="4"><img src="https://i.ibb.co/wZCNtL8V/IMG-8449.avif" alt="صورة مصغرة 5"></button>
+<button class="thumb" type="button" data-index="5"><img src="https://i.ibb.co/LzhL4FP1/IMG-8451.avif" alt="صورة مصغرة 6"></button>
+</div>
+</div>
+
+<div class="details-card">
+<div class="brand-line">
+<span class="brand-tag">جهاز تسجيل HDCVI DVR</span>
+<span>متوفر الآن مع توصيل سريع</span>
+</div>
+
+<h1>جهاز تسجيل HDCVI DVR لمراقبة المحلات والمنازل بجودة عالية وثبات في العمل</h1>
+<p class="lead">
+جهاز تسجيل HDCVI هو قلب نظام المراقبة، لأنه يستقبل الصورة من الكاميرات عبر الكابل ويقوم
+بتسجيلها وعرضها وتشغيلها لاحقاً بجودة واضحة واستقرار مناسب للاستعمال اليومي. هذا النوع مناسب
+للمنازل، المحلات، المكاتب، المخازن، والورشات، ويمنحك مراقبة مستمرة مع إمكانية المتابعة من الشاشة
+أو من الهاتف حسب إعدادات النظام والتطبيق المستعمل.
+</p>
+
+<div class="price-row">
+<span class="price">36500 دج</span>
+<span class="old">42000 دج</span>
+</div>
+
+<div class="benefits">
+<article class="feature-card">
+<i class="fa-solid fa-camera"></i>
+<div>
+<strong>تسجيل عالي الوضوح</strong>
+<span>يدعم أنظمة HDCVI لتسجيل صورة واضحة ومتابعة أدق للتفاصيل.</span>
+ </div>
+</article>
+<article class="feature-card">
+<i class="fa-solid fa-mobile-screen-button"></i>
+<div>
+<strong>عرض مباشر واسترجاع</strong>
+<span>مشاهدة الكاميرات مباشرة والرجوع إلى التسجيلات عند الحاجة.</span>
+</div>
+</article>
+<article class="feature-card">
+<i class="fa-solid fa-bolt"></i>
+<div>
+<strong>ضغط وحفظ فعال</strong>
+<span>استهلاك منظم للتخزين مع عمل متواصل مناسب للمراقبة اليومية.</span>
+</div>
+</article>
+<article class="feature-card">
+<i class="fa-solid fa-truck-fast"></i>
+<div>
+<strong>مناسب للتركيب المهني</strong>
+<span>يعمل مع أنظمة المراقبة السلكية ويصلح للمحل أو البيت أو المكتب.</span>
+</div>
+</article>
+</div>
+
+<div class="order-card">
+<h2 class="section-title">إتمام الطلب</h2>
+<p class="section-note">املأ المعلومات التالية وسيتم حساب السعر النهائي تلقائياً.</p>
+
+<form class="field-grid">
+<div class="field">
+<label for="fullName">الاسم الكامل</label>
+<input id="fullName" type="text" placeholder="أدخل الاسم الكامل">
+</div>
+
+<div class="field">
+<label for="phone">رقم الهاتف</label>
+<input id="phone" type="tel" placeholder="أدخل رقم الهاتف">
+</div>
+
+<div class="field">
+<label for="wilaya">الولاية</label>
+<select id="wilaya"></select>
+</div>
+
+<div class="field">
+<label for="qty">كمية المنتج</label>
+<input id="qty" type="number" min="1" value="1">
+</div>
+
+<div class="field full">
+<label for="address">العنوان الكامل</label>
+<input id="address" type="text" placeholder="الحي، الشارع، البلدية...">
+</div>
+
+<div class="field full">
+<div class="addon-box">
+<label for="cable">إضافة كابل (60 دج / متر)</label>
+<div class="addon-grid">
+<div class="field">
+<select id="cable">
+<option value="0">لا</option>
+<option value="1">نعم</option>
+</select>
+</div>
+
+<div class="field">
+<label for="cableQty">كمية الكابل بالمتر</label>
+<input id="cableQty" type="number" min="0" value="0" placeholder="مثال: 20">
+</div>
+</div>
+</div>
+</div>
+
+<div class="field full">
+<div class="delivery-box">
+<p class="delivery-title">نوع التوصيل</p>
+<div class="delivery-options">
+<label class="radio-card">
+<input type="radio" name="delivery" value="desk" checked>
+<span class="radio-ui">
+<span>
+<strong>إلى المكتب</strong>
+<span>أقل تكلفة</span>
+</span>
+<i class="fa-solid fa-shop"></i>
+</span>
+</label>
+
+<label class="radio-card">
+<input type="radio" name="delivery" value="home">
+<span class="radio-ui">
+<span>
+<strong>إلى المنزل</strong>
+<span>راحة أكثر</span>
+</span>
+<i class="fa-solid fa-house"></i>
+</span>
+</label>
+</div>
+</div>
+</div>
+
+<div class="field full">
+<div class="summary">
+<div class="summary-title">
+<span>ملخص الطلب</span>
+<span id="summaryQty">1 قطعة</span>
+</div>
+<div class="summary-line"><span>سعر المنتجات</span><strong id="productPrice">36500 دج</strong></div>
+<div class="summary-line"><span>الكابل</span><strong id="cablePrice">0 دج</strong></div>
+<div class="summary-line"><span>الشحن</span><strong id="shippingPrice">400 دج</strong></div>
+<div class="summary-line"><span>الإجمالي</span><strong class="summary-total" id="totalPrice">36900 دج</strong></div>
+</div>
+</div>
+
+<button class="submit-btn" type="button">تأكيد الطلب الآن</button>
+<div class="microcopy">الدفع عند الاستلام مع تأكيد الطلب هاتفياً قبل الإرسال.</div>
+</form>
+</div>
+
+<div class="product-description">
+<h3>وصف المنتج</h3>
+<p>
+جهاز تسجيل HDCVI DVR هو جهاز مخصص لإدارة نظام كاميرات المراقبة السلكية، حيث يقوم باستقبال الإشارة من
+الكاميرات عبر كابل Coaxial أو عبر التوصيلات المناسبة، ثم يعرض الصورة على الشاشة ويسجلها على القرص الصلب
+للرجوع إليها لاحقاً. من أهم مزاياه أنه يوفر مراقبة مستقرة على مدار الساعة، مع واجهة تشغيل سهلة، وإمكانية
+البحث داخل التسجيلات حسب الوقت والتاريخ، وتشغيل اللقطات السابقة عند الحاجة. كما أن هذا النوع من الأجهزة
+يستعمل كثيراً في المحلات التجارية، المنازل، المكاتب، المستودعات، والورشات لأنه يجمع بين سهولة التركيب،
+وضوح الصورة، واعتمادية العمل اليومي. جهاز HDCVI يدعم عادة العرض عبر HDMI أو VGA بحسب الموديل، ويمكن ربطه
+بالشبكة من أجل المتابعة عن بعد، كما يساعد على تنظيم الحماية ومراقبة المداخل والمخارج ونقاط البيع والمساحات
+الحساسة داخل المكان. إذا كنت تبحث عن حل عملي للمراقبة والتسجيل والمتابعة المستمرة، فإن جهاز تسجيل HDCVI
+يبقى من أكثر الخيارات المناسبة للأنظمة السلكية الاحترافية.
+</p>
+</div>
+</div>
+</section>
+
+<section class="info-section">
+<div class="tabs">
+<button class="tab active" type="button" data-tab="deliveryTab">التوصيل</button>
+<button class="tab" type="button" data-tab="exchangeTab">الاستبدال</button>
+<button class="tab" type="button" data-tab="returnTab">الاسترجاع</button>
+</div>
+
+<article class="tab-panel active" id="deliveryTab">
+<img src="https://i.ibb.co/ccnS28Sv/Photo-Room-20251107-171222.png" alt="التوصيل">
+<div>
+<h3>توصيل منظم وواضح</h3>
+<p>يتم الاتصال بك لتأكيد الطلب خلال وقت قصير، ثم تجهيز الشحنة وإرسالها إلى الولاية التي اخترتها.</p>
+<p>مدة التوصيل عادة بين 24 و72 ساعة مع تغليف محكم ومتابعة حتى الاستلام.</p>
+</div>
+</article>
+
+<article class="tab-panel" id="exchangeTab">
+<img src="https://i.ibb.co/jvwvSsHJ/Retrait-sur-arlon.png" alt="الاستبدال">
+<div>
+<h3>سياسة استبدال سهلة</h3>
+<p>إذا وصل المنتج مع خلل أو كان هناك مشكل واضح، يمكن طلب الاستبدال خلال 48 ساعة من الاستلام.</p>
+<p>الهدف هو أن تبقى تجربة الشراء مطمئنة وسلسة من البداية إلى ما بعد التسليم.</p>
+</div>
+</article>
+
+<article class="tab-panel" id="returnTab">
+<img src="https://i.ibb.co/S7tYt5n6/21-min.jpg" alt="الاسترجاع">
+<div>
+<h3>استرجاع عند عدم المطابقة</h3>
+<p>في حال كان المنتج غير مطابق لما هو معروض، يتم التكفل بطلب الاسترجاع وفق الشروط المعلنة.</p>
+<p>هذا يعطي ثقة أكبر للزبون ويقوي صورة المتجر بشكل احترافي.</p>
+</div>
+</article>
+
+<section class="contact-card">
+<div>
+<h3>هل تحتاج لمزيد من المساعدة؟</h3>
+<p>فريق المبيعات جاهز للرد على الأسئلة الخاصة بالتركيب، الكابل، التوصيل، أو تأكيد الطلب قبل الإرسال.</p>
+</div>
+
+<div class="contact-links">
+<a class="contact-link" href="tel:0659245744">
+<span class="left">
+<i class="fa-solid fa-phone"></i>
+<span class="contact-value">0659245744</span>
+</span>
+<i class="fa-solid fa-arrow-left"></i>
+</a>
+<a class="contact-link" href="mailto:wsamir431@gmail.com">
+<span class="left">
+<i class="fas fa-envelope"></i>
+<span class="contact-value">wsamir431@gmail.com</span>
+</span>
+<i class="fa-solid fa-arrow-left"></i>
+</a>
+</div>
+</section>
+</section>
+
+<footer>
+<p>© 2026 <span class="brand-title"><span class="wm">WM</span> Sécurité</span> - كل الحقوق محفوظة.</p>
+<p>Developed by sitemagique</p>
+</footer>
+</main>
+
+<script>
+const productPrice = 36500;
+
+const shippingRates = {
+  "أدرار": { desk: 970, home: 1400 },
+  "الشلف": { desk: 520, home: 850 },
+  "الأغواط": { desk: 620, home: 950 },
+  "أم البواقي": { desk: 520, home: 850 },
+  "باتنة": { desk: 520, home: 850 },
+  "بجاية": { desk: 520, home: 800 },
+  "بسكرة": { desk: 620, home: 950 },
+  "بشار": { desk: 720, home: 1100 },
+  "البليدة": { desk: 470, home: 600 },
+  "البويرة": { desk: 520, home: 700 },
+  "تمنراست": { desk: 1120, home: 1600 },
+  "تبسة": { desk: 570, home: 900 },
+  "تلمسان": { desk: 570, home: 900 },
+  "تيارت": { desk: 520, home: 850 },
+  "تيزي وزو": { desk: 520, home: 750 },
+  "الجزائر": { desk: 520, home: 800 },
+  "الجلفة": { desk: 600, home: 900 },
+  "جيجل": { desk: 570, home: 950 },
+  "سطيف": { desk: 520, home: 800 },
+  "سعيدة": { desk: 570, home: 900 },
+  "سكيكدة": { desk: 520, home: 900 },
+  "سيدي بلعباس": { desk: 520, home: 900 },
+  "عنابة": { desk: 520, home: 850 },
+  "قالمة": { desk: 520, home: 900 },
+  "قسنطينة": { desk: 520, home: 800 },
+  "المدية": { desk: 520, home: 800 },
+  "مستغانم": { desk: 520, home: 900 },
+  "المسيلة": { desk: 570, home: 850 },
+  "معسكر": { desk: 520, home: 900 },
+  "ورقلة": { desk: 670, home: 950 },
+  "وهران": { desk: 370, home: 400 },
+  "البيض": { desk: 670, home: 1100 },
+  "إيليزي": { desk: 1700, home: 2000 },
+  "برج بوعريريج": { desk: 520, home: 800 },
+  "بومرداس": { desk: 520, home: 700 },
+  "الطارف": { desk: 520, home: 850 },
+  "تندوف": { desk: 1400, home: 1800 },
+  "تيسمسيلت": { desk: 520, home: 900 },
+  "الوادي": { desk: 670, home: 950 },
+  "خنشلة": { desk: 520, home: 900 },
+  "سوق أهراس": { desk: 520, home: 900 },
+  "تيبازة": { desk: 520, home: 700 },
+  "ميلة": { desk: 520, home: 900 },
+  "عين الدفلى": { desk: 520, home: 900 },
+  "النعامة": { desk: 670, home: 1100 },
+  "عين تموشنت": { desk: 520, home: 900 },
+  "غرداية": { desk: 620, home: 950 },
+  "غليزان": { desk: 520, home: 900 },
+  "تميمون": { desk: 1100, home: 1400 },
+  "برج باجي مختار": { desk: 1050, home: 1380 },
+  "أولاد جلال": { desk: 620, home: 950 },
+  "بني عباس": { desk: 970, home: 1100 },
+  "إن صالح": { desk: 1100, home: 1600 },
+  "إن قزام": { desk: 1700, home: 1600 },
+  "تقرت": { desk: 670, home: 950 },
+  "جانت": { desk: 1700, home: 2000 },
+  "المغير": { desk: 800, home: 950 },
+  "المنيعة": { desk: 1100, home: 1000 }
+};
+
+const formatDzd = (value) => `${value.toLocaleString("fr-FR")} دج`;
+
+const qtyInput = document.getElementById("qty");
+const cableSelect = document.getElementById("cable");
+const cableQtyInput = document.getElementById("cableQty");
+const wilayaSelect = document.getElementById("wilaya");
+
+function populateWilayas() {
+  wilayaSelect.innerHTML = "";
+  Object.keys(shippingRates).forEach((wilaya) => {
+    const option = document.createElement("option");
+    option.value = wilaya;
+    option.textContent = wilaya;
+    if (wilaya === "الجزائر") {
+      option.selected = true;
+    }
+    wilayaSelect.appendChild(option);
+  });
+}
+
+function toggleCableState() {
+  const enabled = cableSelect.value === "1";
+  cableQtyInput.disabled = !enabled;
+  if (!enabled) {
+    cableQtyInput.value = 0;
+  } else if (Number(cableQtyInput.value) === 0) {
+    cableQtyInput.value = 1;
+  }
+}
+
+function calc() {
+  const quantity = Math.max(1, Number(qtyInput.value) || 1);
+  qtyInput.value = quantity;
+
+  const wilaya = wilayaSelect.value;
+  const delivery = document.querySelector('input[name="delivery"]:checked').value;
+
+  const productsTotal = quantity * productPrice;
+
+  let cableTotal = 0;
+  if (cableSelect.value === "1") {
+    const cableQty = Math.max(0, Number(cableQtyInput.value) || 0);
+    cableQtyInput.value = cableQty;
+    cableTotal = cableQty * 60;
+  }
+
+  const shipping = shippingRates[wilaya] ? shippingRates[wilaya][delivery] : 0;
+  const total = productsTotal + cableTotal + shipping;
+
+  document.getElementById("summaryQty").innerText = `${quantity} ${quantity > 1 ? "قطع" : "قطعة"}`;
+  document.getElementById("productPrice").innerText = formatDzd(productsTotal);
+  document.getElementById("cablePrice").innerText = formatDzd(cableTotal);
+  document.getElementById("shippingPrice").innerText = formatDzd(shipping);
+  document.getElementById("totalPrice").innerText = formatDzd(total);
+}
+
+cableSelect.addEventListener("change", () => {
+  toggleCableState();
+  calc();
+});
+
+document.querySelectorAll("input, select").forEach((element) => {
+  element.addEventListener("input", calc);
+  element.addEventListener("change", calc);
+});
+
+populateWilayas();
+toggleCableState();
+calc();
+
+const tabs = document.querySelectorAll(".tab");
+const panels = document.querySelectorAll(".tab-panel");
+
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    tabs.forEach((item) => item.classList.remove("active"));
+    panels.forEach((panel) => panel.classList.remove("active"));
+    tab.classList.add("active");
+    document.getElementById(tab.dataset.tab).classList.add("active");
+  });
+});
+
+const viewport = document.getElementById("galleryViewport");
+const slides = document.querySelectorAll(".gallery-slide");
+const thumbs = document.querySelectorAll(".thumb");
+let currentSlide = 0;
+
+function updateThumbs(index) {
+  thumbs.forEach((thumb) => thumb.classList.toggle("active", Number(thumb.dataset.index) === index));
+}
+
+function goToSlide(index) {
+  currentSlide = (index + slides.length) % slides.length;
+  viewport.scrollTo({
+    left: slides[currentSlide].offsetLeft,
+    behavior: "smooth"
+  });
+  updateThumbs(currentSlide);
+}
+
+document.getElementById("nextBtn").addEventListener("click", () => goToSlide(currentSlide + 1));
+document.getElementById("prevBtn").addEventListener("click", () => goToSlide(currentSlide - 1));
+
+thumbs.forEach((thumb) => {
+  thumb.addEventListener("click", () => goToSlide(Number(thumb.dataset.index)));
+});
+
+viewport.addEventListener("scroll", () => {
+  const slideWidth = viewport.clientWidth;
+  const index = Math.round(viewport.scrollLeft / slideWidth);
+  if (index !== currentSlide && index >= 0 && index < slides.length) {
+    currentSlide = index;
+    updateThumbs(currentSlide);
+  }
+});
+</script>
+
+</body>
+</html>
