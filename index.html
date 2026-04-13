@@ -930,30 +930,34 @@ font-size:22px;
 <h2 class="section-title">إتمام الطلب</h2>
 <p class="section-note">املأ المعلومات التالية وسيتم حساب السعر النهائي تلقائياً.</p>
 
-<form class="field-grid">
+<form class="field-grid" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="76fbc858-6f91-41d8-af1e-190c5e599722">
+<input type="hidden" name="subject" value="طلب جديد - جهاز تسجيل HDCVI DVR">
+<input type="hidden" name="إجمالي_السعر_بالدينار" id="hiddenTotalPrice" value="">
+
 <div class="field">
 <label for="fullName">الاسم الكامل</label>
-<input id="fullName" type="text" placeholder="أدخل الاسم الكامل">
+<input id="fullName" name="الاسم_الكامل" type="text" placeholder="أدخل الاسم الكامل" required>
 </div>
 
 <div class="field">
 <label for="phone">رقم الهاتف</label>
-<input id="phone" type="tel" placeholder="أدخل رقم الهاتف">
+<input id="phone" name="رقم_الهاتف" type="tel" placeholder="أدخل رقم الهاتف" required>
 </div>
 
 <div class="field">
 <label for="wilaya">الولاية</label>
-<select id="wilaya"></select>
+<select id="wilaya" name="الولاية" required></select>
 </div>
 
 <div class="field">
 <label for="qty">كمية المنتج</label>
-<input id="qty" type="number" min="1" value="1">
+<input id="qty" name="كمية_المنتج" type="number" min="1" value="1" required>
 </div>
 
 <div class="field full">
 <label for="address">العنوان الكامل</label>
-<input id="address" type="text" placeholder="الحي، الشارع، البلدية...">
+<input id="address" name="العنوان_الكامل" type="text" placeholder="الحي، الشارع، البلدية..." required>
 </div>
 
 <div class="field full">
@@ -961,7 +965,7 @@ font-size:22px;
 <label for="cable">إضافة كابل (60 دج / متر)</label>
 <div class="addon-grid">
 <div class="field">
-<select id="cable">
+<select id="cable" name="إضافة_كابل">
 <option value="0">لا</option>
 <option value="1">نعم</option>
 </select>
@@ -969,7 +973,7 @@ font-size:22px;
 
 <div class="field">
 <label for="cableQty">كمية الكابل بالمتر</label>
-<input id="cableQty" type="number" min="0" value="0" placeholder="مثال: 20">
+<input id="cableQty" name="كمية_الكابل_بالمتر" type="number" min="0" value="0" placeholder="مثال: 20">
 </div>
 </div>
 </div>
@@ -980,7 +984,7 @@ font-size:22px;
 <p class="delivery-title">نوع التوصيل</p>
 <div class="delivery-options">
 <label class="radio-card">
-<input type="radio" name="delivery" value="desk" checked>
+<input type="radio" name="نوع_التوصيل" value="desk" checked>
 <span class="radio-ui">
 <span>
 <strong>إلى المكتب</strong>
@@ -991,7 +995,7 @@ font-size:22px;
 </label>
 
 <label class="radio-card">
-<input type="radio" name="delivery" value="home">
+<input type="radio" name="نوع_التوصيل" value="home">
 <span class="radio-ui">
 <span>
 <strong>إلى المنزل</strong>
@@ -1017,7 +1021,7 @@ font-size:22px;
 </div>
 </div>
 
-<button class="submit-btn" type="button">تأكيد الطلب الآن</button>
+<button class="submit-btn" type="submit">تأكيد الطلب الآن</button>
 <div class="microcopy">الدفع عند الاستلام مع تأكيد الطلب هاتفياً قبل الإرسال.</div>
 </form>
 </div>
@@ -1174,6 +1178,7 @@ const qtyInput = document.getElementById("qty");
 const cableSelect = document.getElementById("cable");
 const cableQtyInput = document.getElementById("cableQty");
 const wilayaSelect = document.getElementById("wilaya");
+const hiddenTotalPrice = document.getElementById("hiddenTotalPrice"); // لجلب الحقل المخفي
 
 function populateWilayas() {
   wilayaSelect.innerHTML = "";
@@ -1203,7 +1208,7 @@ function calc() {
   qtyInput.value = quantity;
 
   const wilaya = wilayaSelect.value;
-  const delivery = document.querySelector('input[name="delivery"]:checked').value;
+  const delivery = document.querySelector('input[name="نوع_التوصيل"]:checked').value;
 
   const productsTotal = quantity * productPrice;
 
@@ -1222,6 +1227,9 @@ function calc() {
   document.getElementById("cablePrice").innerText = formatDzd(cableTotal);
   document.getElementById("shippingPrice").innerText = formatDzd(shipping);
   document.getElementById("totalPrice").innerText = formatDzd(total);
+  
+  // تحديث الحقل المخفي لكي يتم إرسال السعر الإجمالي للإيميل
+  hiddenTotalPrice.value = formatDzd(total);
 }
 
 cableSelect.addEventListener("change", () => {
